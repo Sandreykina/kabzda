@@ -1,0 +1,9 @@
+.header {
+    background-color: #494e58;
+    grid-area: 1 / 1 / 2 / 3;
+    font-size: 200%;
+    color: rgba(58, 187, 226, 0.404)
+}
+.header img {
+  width: 60px;
+}
