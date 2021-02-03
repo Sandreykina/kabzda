@@ -3,17 +3,31 @@ import './App.css';
 import Profile from './components/Profile/Profile';
 import Header from './components/Header/Header';
 import Nav from './components/Nav/Nav';
-//  import Post from './components/MyPosts/Post/Post';
-//  import MyPost from './components/MyPosts/MyPost/MyPost';
+import Dialogs from './components/Dialogs/Dialogs';
+import { BrowserRouter, Route } from 'react-router-dom';
+import News from './components/News/News';
+import Music from './components/Music/Music';
+import MyFriends from './components/MyFriends/MyFriends';
+import Settings from './components/Settings/Settings';
 
-const App= ()=>  {
+const App = () => {
   return (
-    <div className="app">
-      <Header />
-      <Nav />
-      <Profile />
-      
-    </div>
+    <BrowserRouter>
+      <div className="app-wrapper">
+        <Header />
+        <Nav />
+        <div className="app-wrapper-content">
+          <Route path = '/profile' component = {Profile} />
+          <Route path = '/dialogs' component = {Dialogs} />
+          <Route path = '/news' component = {News} />
+          <Route path = '/music' component = {Music} />
+          <Route path = '/myfriends' component = {MyFriends} />
+          <Route path = '/settings' component = {Settings} />
+
+        </div>
+        
+      </div>
+    </BrowserRouter>
   );
 }
 
