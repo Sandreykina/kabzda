@@ -12,15 +12,6 @@
     text-decoration: none;
 }
 
-.dialogsItems a:hover {
-    color: rgb(59, 129, 194);
-}
-.dialogsItems a:active {
-    color: gold;
-}
 .messages {
     padding: 10px;
-}
-.message {
-    
 }

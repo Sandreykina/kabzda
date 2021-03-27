@@ -1,0 +1,13 @@
+import React from 'react';
+import style from './../Dialogs.module.css';
+
+const MessageItem = (props) => {
+    return (
+        <div>
+            {props.message}
+        </div>
+    )
+}
+
+
+export default MessageItem;
