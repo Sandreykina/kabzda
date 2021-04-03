@@ -5,6 +5,8 @@ const ProfileInfo = () => {
     return (
         <div className = {style.profinfo}>
             <img src="https://img5.goodfon.com/wallpaper/nbig/2/d7/kot-koshka-ryzhii-vzgliad-morda-fon-zelenye-glaza-kote-ko-13.jpg" alt="profileinfo" />
+            YOU NIKNAME 
+            another infa
         </div>
         
     )

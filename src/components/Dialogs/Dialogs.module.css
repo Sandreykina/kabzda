@@ -1,17 +1,19 @@
 .dialogs {
     display: grid;
     grid-template-columns: 2fr 3fr;
+    grid-column-gap: 1px;
+}
 
-}
-.dialogsItems {
-    padding: 10px;
-}
 
 .dialogsItems a{
-    color: rgb(6, 3, 58);
+    color: rgb(25, 2, 66);
     text-decoration: none;
 }
 
 .messages {
+    display: grid;
+    /* grid-template-columns: 2fr 2fr; */
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(70px);
     padding: 10px;
 }

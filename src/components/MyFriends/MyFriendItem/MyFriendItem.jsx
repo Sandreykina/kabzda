@@ -1,12 +1,13 @@
 import React from 'react';
-import style from './../Dialogs.module.css';
+import style from './../MyFriends.module.css';
 
-const MessageItem = (props) => {
+const MyFriendItem = (props) => {
+  
     return (
         <div className={style.messages}>
-            <div className = 'item'>
+            <div className='item'>
                 <img src="https://dthezntil550i.cloudfront.net/kg/latest/kg1802132010216500004834729/1280_960/557d644f-12f3-49e1-bb66-23c16400540d.png" alt="ava" />
-                {props.message}
+                {props.name}
             </div>
 
 
@@ -15,4 +16,4 @@ const MessageItem = (props) => {
 }
 
 
-export default MessageItem;
+export default MyFriendItem;

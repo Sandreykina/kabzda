@@ -14,3 +14,11 @@
     background-color: #a1bffc;
     grid-area: 2 / 2 / 3 / 3;
 }
+.item {
+    padding: 10px;
+}
+.item img{
+    width: 42px;
+    height: 42px; 
+    border-radius: 35px;
+}
