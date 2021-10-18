@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 import FriendItemNav from './FriendItemNav/FriendItemNav';
 
 const Nav = (props) => {
-debugger;
+
     let MyBestFriends = props.state.bestFriends.map ( f => <FriendItemNav id = {f.id} name = {f.name} />)
     
     return (
