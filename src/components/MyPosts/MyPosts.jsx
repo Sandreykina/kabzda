@@ -11,6 +11,7 @@ const MyPosts = (props) => {
     let newPostElement = React.createRef();
 
     let addPostUI = () => {
+        debugger;
         props.addPost();
     };
 
