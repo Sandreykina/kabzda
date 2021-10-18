@@ -4,21 +4,21 @@ import style from './Post/Post.module.css';
 import './MyPosts.css';
 
 const MyPosts = (props) => {
-    debugger;
 
     let postElement = props.state.postData.map(p => <Post message={p.message} likesCount={p.likesCount} dislikesCount={p.dislikesCount} />);
 
     let newPostElement = React.createRef();
 
     let addPostUI = () => {
-        debugger;
-        props.addPost();
+        //props.addPost();
+        props.dispatch({ type: 'ADD-POST' });
     };
 
     let onPostChange = () => {
-        
         let text = newPostElement.current.value;
-        props.updateNewPostText(text);
+        //props.updateNewPostText(text);
+        let action = { type: 'UPDATE-NEW-POST-TEXT', newText: text}
+        props.dispatch(action);
     };
 
     return (
