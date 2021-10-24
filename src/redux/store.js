@@ -1,8 +1,8 @@
-const ADD_POST = 'ADD_POST';
-const UPDATE_NEW_POST_TEXT = 'UPDATE_NEW_POST_TEXT';
+import messagesReducer from "./messages_reducer";
+import postsReducer from "./posts_reducer";
+import myfriendsReducer from "./myfriends_reducer";
+import navsectionReducer from "./navsection_reducer";
 
-const UPDATE_NEW_MESSAGE_BODY = 'UPDATE_NEW_MESSAGE_BODY';
-const SEND_MESSAGE = 'SEND_MESSAGE';
 
 let store = {
 
@@ -65,51 +65,17 @@ let store = {
         this._callSubscriber = observer;
     },
 
-    dispatch(action) { //{ type: 'ADD-POST'}
-        if (action.type === ADD_POST) {
-            let newPostObject = {
-                id: 6,
-                message: this._state.postsPage.newPostText,
-                likesCount: 1,
-                dislikesCount: 2
-            };
-            this._state.postsPage.postData.push(newPostObject);
-            this._state.postsPage.newPostText = '';
-            this._callSubscriber(this._state);
-        }
-        else if (action.type === UPDATE_NEW_POST_TEXT) {
-            this._state.postsPage.newPostText = action.newText;
-            this._callSubscriber(this._state);
-        }
+    dispatch(action) { //action - это объект, у которого как минимум есть свойство type
 
-        else if (action.type === UPDATE_NEW_MESSAGE_BODY) {
-            debugger;
-            this._state.messagesPage.newMessageBody = action.body;
-            this._callSubscriber(this._state);
-        }
-        else if (action.type === SEND_MESSAGE) {
-            let newMessageObject = {
-                id: 6,
-                message: this._state.messagesPage.newMessageBody,
-            };
-            this._state.messagesPage.messagesData.push(newMessageObject);
-            this._state.messagesPage.newMessageBody = '';
-            this._callSubscriber(this._state);
-        }
+        this._state.messagesPage = messagesReducer(this._state.messagesPage, action);
+        this._state.postsPage = postsReducer(this._state.postsPage, action);
+        this._state.myfriendsPage = myfriendsReducer(this._state.myfriendsPage, action);
+        this._state.navSection = navsectionReducer(this._state.navSection, action);
+
+        this._callSubscriber(this._state);
     }
 
 }
-export const addPostActionCreator = () => ({ type: ADD_POST })
-
-export const updateNewPostTextActionCreator = (text) => ({
-    type: UPDATE_NEW_POST_TEXT, newText: text
-})
-
-export const sendMessageCreator = () => ({ type: SEND_MESSAGE })
-
-export const updateNewMessageBodyCreator = (body) => ({
-    type: UPDATE_NEW_MESSAGE_BODY, body: body
-})
 
 export default store;
 window.store = store;
