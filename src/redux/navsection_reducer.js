@@ -1,4 +1,12 @@
-const navsectionReducer = (state, action) => {
+let initialState = {
+    bestFriends: [
+        { id: 1, name: 'Andrey' },
+        { id: 2, name: 'George' },
+        { id: 3, name: 'Viktor' }
+    ]
+}
+
+const navsectionReducer = (state = initialState, action) => {
 
     return state;
 }

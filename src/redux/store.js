@@ -50,7 +50,6 @@ let store = {
                 { id: 1, name: 'Andrey' },
                 { id: 2, name: 'George' },
                 { id: 3, name: 'Viktor' }
-
             ]
         }
     },

@@ -14,22 +14,23 @@ import Settings from './components/Settings/Settings';
 
 
 const App = (props) => {
+  debugger;
   return (
     <BrowserRouter>
       <div className="app-wrapper">
         <Header />
-        <Nav state = {props.state.navSection}/>
+        <Nav state={props.state.navSection} />
         <div className="app-wrapper-content">
-          <Route path = '/profile' render = {() => <Profile /> } />
-          <Route path = '/dialogs' render = {() => <Dialogs state = {props.state.messagesPage} dispatch = {props.dispatch} /> } />
-          <Route path = '/myposts' render = {() => <MyPosts state = {props.state.postsPage} dispatch = {props.dispatch} /> } />
-          <Route path = '/news' render = {() => <News /> } />
-          <Route path = '/music' render = {() => <Music /> } />
-          <Route path = '/myfriends' render = {() => <MyFriends state = {props.state.myfriendsPage} /> } />
-          <Route path = '/settings' render = {() => <Settings /> } />
+          <Route path='/profile' render={() => <Profile />} />
+          <Route path='/dialogs' render={() => <Dialogs state={props.state.messagesPage} dispatch={props.dispatch} />} />
+          <Route path='/myposts' render={() => <MyPosts state={props.state.postsPage} dispatch={props.dispatch} />} />
+          <Route path='/news' render={() => <News />} />
+          <Route path='/music' render={() => <Music />} />
+          <Route path='/myfriends' render={() => <MyFriends state={props.state.myfriendsPage} />} />
+          <Route path='/settings' render={() => <Settings />} />
 
         </div>
-        
+
       </div>
     </BrowserRouter>
   );
