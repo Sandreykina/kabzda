@@ -3,9 +3,7 @@ import postsReducer from "./posts_reducer";
 import myfriendsReducer from "./myfriends_reducer";
 import navsectionReducer from "./navsection_reducer";
 
-
 let store = {
-
     _state: {
         postsPage: {
             postData: [
@@ -73,7 +71,6 @@ let store = {
 
         this._callSubscriber(this._state);
     }
-
 }
 
 export default store;

@@ -1,37 +1,43 @@
-import React from 'react';
-import Post from './Post/Post';
-import style from './Post/Post.module.css';
-import { addPostActionCreator, updateNewPostTextActionCreator } from './../../redux/posts_reducer';
-import './MyPosts.css';
+import React from "react";
+import Post from "./Post/Post";
+import style from "./Post/Post.module.css";
 
 const MyPosts = (props) => {
+  const postElement = props.postsPage.postData.map((p) => (
+    <Post
+      message = {p.message}
+      likesCount = {p.likesCount}
+      dislikesCount = {p.dislikesCount}
+      key = {p.id}
+    />
+  ));
+  const newPostText = props.newPostText;
 
-    let postElement = props.state.postData.map(p => <Post message={p.message} likesCount={p.likesCount} dislikesCount={p.dislikesCount} />);
+  const onNewPostText = (e) => {
+    const text = e.target.value;
+    props.updateNewPostText(text);
+  }
 
-    let addPostUI = () => {
-        props.dispatch(addPostActionCreator());
-    };
-    let onPostChange = (event) => {
-        let text = event.target.value;
-        props.dispatch(updateNewPostTextActionCreator(text));
-    };
+  const onaddPostUI = () => {
+    props.addPostUI();
+  }
 
-    return (
-        <div className="myposts">
-            <h4>My Posts</h4>
-            <div>
-                <div>
-                    <textarea onChange={onPostChange} value={props.state.newPostText} placeholder="Enter your post" />
-                </div>
-                <button onClick={addPostUI} >post</button>
-            </div>
-            <div className={style.item}>
-                {postElement}
-
-            </div>
-
+  return (
+    <div className = "myposts">
+      <h4>My Posts</h4>
+      <div>
+        <div>
+          <textarea
+            onChange = {onNewPostText}
+            value = {newPostText}
+            placeholder = "Enter your post"
+          />
         </div>
+        <button onClick = {onaddPostUI}>add post</button>
+      </div>
+      <div className = {style.item}>{postElement}</div>
+    </div>
+  );
+};
 
-    );
-}
 export default MyPosts;

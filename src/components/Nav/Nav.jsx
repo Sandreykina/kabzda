@@ -23,8 +23,6 @@ const Nav = (props) => {
                     <h4>My friends</h4>
                 </div>
             <div className = {style.friends}>
-                
-            
                {MyBestFriends}
             </div>
         </div>
