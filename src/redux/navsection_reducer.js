@@ -7,7 +7,10 @@ let initialState = {
 }
 
 const navsectionReducer = (state = initialState, action) => {
+    return {
+        ...state,
+        bestFriends: [...state.bestFriends]
 
-    return state;
+    }
 }
 export default navsectionReducer;
