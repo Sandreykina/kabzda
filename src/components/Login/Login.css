@@ -1,13 +1,8 @@
-.myposts {
-    padding: 10px;
-    margin: 20px;
-}
-.post {
-    display: flex;
-    flex-direction: column;
-}
-.item {
-    margin-top: 10px;
+.login {
+    background-color: #494e58;
+    grid-area: 1 / 1 / 2 / 3;
+    font-size: 200%;
+    color: rgba(58, 187, 226, 0.404)
 }
 .input {
 	width: 60%;

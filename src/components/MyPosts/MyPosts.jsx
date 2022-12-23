@@ -1,41 +1,59 @@
-import React from "react";
-import Post from "./Post/Post";
-import style from "./Post/Post.module.css";
+import "./MyPosts.css";
+import axios from 'axios';
+import React, { useState, useEffect } from 'react';
+import Post from './Post/Post';
 
-const MyPosts = (props) => {
-  const postElement = props.postsPage.postData.map((p) => (
-    <Post
-      message = {p.message}
-      likesCount = {p.likesCount}
-      dislikesCount = {p.dislikesCount}
-      key = {p.id}
-    />
-  ));
-  const newPostText = props.newPostText;
+const MyPosts = ({ posts, setPosts }) => {
+  const [postText, setPostText] = useState('');
 
   const onNewPostText = (e) => {
-    const text = e.target.value;
-    props.updateNewPostText(text);
+    setPostText(e.target.value);
   }
 
-  const onaddPostUI = () => {
-    props.addPostUI();
+  const handleAddPostClick = () => {
+    axios.post('http://localhost:5000/api/addPost',  {
+      id: posts.lenght,
+        title: '',
+        description: postText,
+        img: '',
+        comments: [],
+        likeCount: 0,
+        isLiked: false,
+    }).then(res => {
+      const newPost = [...res.data];
+      setPosts(newPost);
+      setPostText('');
+    }).catch(
+        console.log('Add post error')
+    )
   }
+
+  useEffect(() => {
+    setPostText('');
+  }, [posts]);
+
+  const postElement = posts?.map(post => {
+    return <Post post={post} key={post?._id}/>
+  });
 
   return (
-    <div className = "myposts">
+    <div className="myposts">
       <h4>My Posts</h4>
       <div>
         <div>
-          <textarea
+          <input
             onChange = {onNewPostText}
-            value = {newPostText}
+            className='input'
+            // value = {newPostText}
             placeholder = "Enter your post"
           />
         </div>
-        <button onClick = {onaddPostUI}>add post</button>
+        <button
+          className='button'
+          onClick={handleAddPostClick}
+        >add post</button>
       </div>
-      <div className = {style.item}>{postElement}</div>
+      <div className='item'>{postElement}</div>
     </div>
   );
 };

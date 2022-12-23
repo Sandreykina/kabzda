@@ -1,11 +1,31 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Header.css';
 
-const Header =() => {
+const Header = ({ setisLoggedIn }) => {
+    const navigate = useNavigate();
+
+    const handleLoginClick = () => {
+        navigate("./login")
+    };
+    const handleLogoutClick = () => {
+        setisLoggedIn(false);
+        navigate("/");
+    };
+    
+    const handleLogoClick = () => {
+        navigate("/")
+    };
+    
     return(
-        <header className = "header">
-            {/* <img src = "https://sun9-53.userapi.com/sun9-61/impg/7l0HsQ8N6ey7DElPQa_EPV80rpm7vTQsEoDMvg/Wcnnj4AR-Zs.jpg?size=330x150&quality=96&proxy=1&sign=0a741b21b01d99e03184835442bc8c3d&type=album"/>    */}
-            Social Network  
+        <header className="header">
+            Social Network
+            <button
+                onClick={handleLogoutClick}
+            >Выйти из аккаунта</button>
+            <button
+                onClick={handleLoginClick}
+            >Войти</button>
         </header>
     );
 }
